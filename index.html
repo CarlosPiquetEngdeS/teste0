@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNDAÇÃO ESCOLA SOLIDÁRIA</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 1em 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0;
+            padding-right: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header .logo {
+            width: 100px;
+            margin-top: 1em;
+            border-radius: 10px;
+        }
+
+        nav {
+            background-color: #268ef0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 0.5em 0;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 1em;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .section {
+            padding: 2em;
+            text-align: center;
+        }
+
+        .section h2 {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .gallery-container {
+            overflow: hidden;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 10px;
+            /* Adiciona espaçamento entre as imagens */
+            transition: transform 1s ease;
+        }
+
+        .gallery img {
+            width: calc(20% - 10px);
+            /* Ajusta a largura das imagens para considerar o gap */
+            flex-shrink: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .gallery-nav button {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 25%;
+            height: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 300px;
+            margin: 0.5em 0;
+            padding: 0.5em;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        footer .social {
+            margin-bottom: 1em;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+
+        .section-gradient {
+            background: linear-gradient(135deg, #0762d9, #0540a8);
+            padding: 4em 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-gradient .overlay {
+            background-image: url(fundo.png);
+            opacity: 0.12;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        .section-gradient .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1em;
+        }
+
+        .heading {
+            color: #52f28a;
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 0.5em;
+            animation: fadeIn 1s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .divider {
+            height: 4px;
+            width: 9%;
+            background-color: #52f28a;
+            margin: 0.5em auto;
+        }
+
+        .subheading {
+            color: #ffffff;
+            font-size: 1.7em;
+            font-weight: 200;
+            text-transform: capitalize;
+        }
+
+        .text {
+            color: #ffffff;
+            text-align: justify;
+            margin: 1em 5em 0 0;
+            padding-right: 5em;
+            border-right: 3px solid #30d979;
+            font-size: 0.9em;
+        }
+
+        .icon-container {
+            text-align: left;
+            animation: fadeInLeft 1s;
+        }
+
+        .icon-container i {
+            font-size: 42px;
+            color: #30d979;
+        }
+
+        .section-icons {
+            background-color: #30d979;
+            padding: 4em 0;
+            text-align: center;
+        }
+
+        .social-icons i {
+            font-size: 2em;
+            margin: 0 1em;
+            color: #27db96;
+        }
+
+        .section-cards {
+            background-color: #ffffff;
+            padding: 4em 0;
+            text-align: center;
+        }
+
+        .card {
+            display: inline-block;
+            background-color: #ffffff;
+            border-bottom: 5px solid #0762d9;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.11);
+            margin: 2em;
+            padding: 1em;
+            width: 20%;
+            border-radius: 6px;
+            transition: border-bottom-color 0.3s;
+        }
+
+        .card:hover {
+            border-bottom-color: #30d979;
+        }
+
+        .card img {
+            max-width: 20%;
+        }
+
+        .card h3 {
+            color: #0762d9;
+            font-family: 'Moulpali', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 1s;
+        }
+
+        .section-faq {
+            background-color: #ffffff;
+            padding: 4em 0;
+            text-align: center;
+        }
+
+        .section-faq .faq-content img {
+            width: 3%;
+        }
+
+        .section-faq .faq-content h2 {
+            color: #0762d9;
+            font-family: 'Palanquin Dark', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: fadeIn 1s;
+        }
+
+        .section-faq .faq-content .divider {
+            height: 6px;
+            width: 9%;
+            background-color: #52f28a;
+            margin: 0.5em auto;
+        }
+
+        .section-faq .faq-content p {
+            color: #979cb2;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        .section-video {
+            background-color: #0762d9;
+            padding: 4em 0 3em;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-video .overlay {
+            background-image: url(fundo.png);
+            opacity: 0.13;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        .section-video .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1em;
+        }
+
+        .section-video .heading {
+            color: #ffffff;
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 0.5em;
+            animation: fadeIn 1s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .section-video .divider {
+            height: 6px;
+            width: 9%;
+            background-color: #52f28a;
+            margin: 0.5em auto;
+        }
+
+        .section-video .subheading {
+            color: #ffffff;
+            font-size: 1.7em;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+
+        .section-video .text {
+            color: #ffffff;
+            margin: 1em 3em 0 0;
+            padding-right: 3em;
+            border-right: 3px solid #30d979;
+            text-align: justify;
+        }
+
+        .section-video .btn {
+            background-color: #52f28a;
+            color: #ffffff;
+            border: 1px solid #52f28a;
+            border-radius: 100px;
+            padding: 1em;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.3s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .section-video .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin-top: 2em;
+        }
+
+        .btn {
+            background-color: #52f28a;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: #30d979;
+            text-decoration: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: left;
+            border-radius: 10px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .calendar-content {
+            text-align: center;
+        }
+
+        .calendar-content img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .print-button {
+            background-color: #52f28a;
+            color: #131212;
+            border: none;
+            border-radius: 4px;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1em;
+        }
+
+        .print-button:hover {
+            background-color: #30d979;
+        }
+
+        .section.contato {
+            background-color: #0762d9;
+            color: #fff;
+            position: relative;
+        }
+
+        .section.contato::before {
+            content: "";
+            background-image: url('crianças.png');
+            background-size: cover;
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .section.contato .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .blackboard {
+            background-color: #2c3e50;
+            border: 5px solid #e74c3c;
+            border-radius: 15px;
+            color: #fff;
+            font-family: 'Shadows Into Light', cursive;
+            padding: 2em;
+            margin: 2em 0;
+            min-height: 300px;
+            max-width: 800px;
+            margin: 2em auto;
+        }
+
+        .blackboard h3 {
+            font-size: 2em;
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 1em;
+            text-transform: uppercase;
+        }
+
+        .chalk {
+            font-size: 1.5em;
+            line-height: 1.6;
+            color: #ecf0f1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: writing 3s steps(40) 1;
+            white-space: pre-wrap;
+        }
+
+        @keyframes writing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                alert('Formulário enviado com sucesso!');
+            });
+
+            // Galeria de imagens com navegação manual
+            const gallery = document.querySelector('.gallery');
+            const images = gallery.querySelectorAll('img');
+            const totalImages = images.length;
+            let index = 0;
+
+            function showImage(i) {
+                gallery.style.transform = `translateX(${-i * (100 / totalImages + 0.5)}%)`;
+            }
+
+            document.querySelector('.prev').addEventListener('click', () => {
+                index = (index > 0) ? index - 1 : totalImages - 1;
+                showImage(index);
+            });
+
+            document.querySelector('.next').addEventListener('click', () => {
+                index = (index + 1) % totalImages;
+                showImage(index);
+            });
+
+            // Modal functionality
+            const modals = document.querySelectorAll('.modal');
+            const btns = document.querySelectorAll('.btn');
+            const spans = document.querySelectorAll('.close');
+
+            btns.forEach((btn, index) => {
+                btn.onclick = function () {
+                    modals[index].style.display = "block";
+                }
+            });
+
+            spans.forEach((span, index) => {
+                span.onclick = function () {
+                    modals[index].style.display = "none";
+                }
+            });
+
+            window.onclick = function (event) {
+                modals.forEach((modal) => {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>FUNDAÇÃO ESCOLA SOLIDÁRIA</h1>
+        <img src="fundo.png" alt="Logo da Instituição" class="logo">
+    </header>
+
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#contato">Contato</a>
+        <a href="ficha.html">Preenchimento de Ficha</a>
+    </nav>
+
+    <section id="sobre" class="section-gradient">
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 class="heading">Sobre a Escola</h1>
+            <div class="divider"></div>
+            <div class="btn-container">
+                <button class="btn" data-modal="modal1">Educação para Todos</button>
+                <button class="btn" data-modal="modal2">Missão, Visão e Valores</button>
+                <button class="btn" data-modal="modal3">A Equipe Administrativa</button>
+            </div>
+        </div>
+
+        <!-- Modal Educação para Todos -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Educação para Todos</h2>
+                <p>Nosso projeto visa fornecer educação gratuita para crianças carentes e deficientes físicos, sem fins
+                    lucrativos. Acreditamos que a educação é um direito fundamental e trabalhamos para garantir que
+                    todas as crianças tenham acesso a uma educação de qualidade.</p>
+            </div>
+        </div>
+
+        <!-- Modal Missão, Visão e Valores -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Missão, Visão e Valores</h2>
+                <p>Nossa missão é proporcionar uma educação de qualidade, inclusiva e transformadora. Nossa visão é ser
+                    reconhecida como uma instituição modelo na formação de cidadãos conscientes e preparados para
+                    enfrentar os desafios do futuro. Nossos valores incluem ética, respeito, responsabilidade e
+                    inovação.</p>
+            </div>
+        </div>
+
+        <!-- Modal A Equipe Administrativa -->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>A Equipe Administrativa</h2>
+                <p>Contamos com uma equipe dedicada de diretores e coordenadores que trabalham incansavelmente para
+                    garantir o melhor ambiente de aprendizado para nossos alunos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="section">
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="fotos.png" alt="Foto 1">
+                <img src="fotos.png" alt="Foto 2">
+                <img src="fotos.png" alt="Foto 3">
+                <img src="fotos.png" alt="Foto 4">
+                <img src="fotos.png" alt="Foto 5">
+                <img src="fotos.png" alt="Foto 6">
+                <img src="fotos.png" alt="Foto 1">
+                <img src="fotos.png" alt="Foto 2">
+                <img src="fotos.png" alt="Foto 3">
+                <img src="fotos.png" alt="Foto 4">
+                <img src="fotos.png" alt="Foto 5">
+                <img src="fotos.png" alt="Foto 6">
+            </div>
+            <div class="gallery-nav">
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="section-video">
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 class="heading">Vídeos do Projeto</h1>
+            <div class="divider"></div>
+            <h3 class="subheading">Nossos Momentos</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section contato">
+        <h2>Atendimento ao Aluno/Responsável</h2>
+        <div class="container">
+            <form class="contact-form">
+                <a href="https://wa.me/5521977434614" target="_blank" class="btn">WhatsApp</a>
+            </form>
+            <p>Endereço: Santa Amélia, Belford Roxo - RJ, 26116-570</p>
+            <p>Telefone: (11) 1234-5678</p>
+            <p>Email: contato@escolafundacao.org</p>
+            <div class="blackboard">
+                <h3>Aviso</h3>
+                <p class="chalk">Aqui você pode escrever suas mensagens como se estivesse usando giz branco em um quadro
+                    negro!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social">
+            <a href="https://facebook.com">Facebook</a>
+            <a href="https://twitter.com">Twitter</a>
+            <a href="https://instagram.com">Instagram</a>
+        </div>
+        <p>&copy; 2024 Escola Fundação. Todos os direitos reservados.</p>
+        <p><a href="politica_privacidade.html">Política de Privacidade</a> | <a href="termos_uso.html">Termos de Uso</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                alert('Formulário enviado com sucesso!');
+            });
+
+            // Galeria de imagens com navegação manual
+            const gallery = document.querySelector('.gallery');
+            const images = gallery.querySelectorAll('img');
+            const totalImages = images.length;
+            let index = 0;
+
+            function showImage(i) {
+                gallery.style.transform = `translateX(${-i * (140 / totalImages + 1.2)}%)`;
+            }
+
+            document.querySelector('.prev').addEventListener('click', () => {
+                index = (index > 0) ? index - 1 : totalImages - 1;
+                showImage(index);
+            });
+
+            document.querySelector('.next').addEventListener('click', () => {
+                index = (index + 1) % totalImages;
+                showImage(index);
+            });
+
+            // Modal functionality
+            const modals = document.querySelectorAll('.modal');
+            const btns = document.querySelectorAll('.btn');
+            const spans = document.querySelectorAll('.close');
+
+            btns.forEach((btn, index) => {
+                btn.onclick = function () {
+                    modals[index].style.display = "block";
+                }
+            });
+
+            spans.forEach((span, index) => {
+                span.onclick = function () {
+                    modals[index].style.display = "none";
+                }
+            });
+
+            window.onclick = function (event) {
+                modals.forEach((modal) => {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
